@@ -1,0 +1,106 @@
+﻿@page "{clubid?}"
+@model WebAppA02.Pages.CRUDModel
+@{
+    ViewData["Title"] = "CRUD";
+}
+<h1>CRUD Page</h1>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+@if (Model.HasFeedback)
+{
+    <p>@Model.Feedback</p>
+}
+
+@if (ModelState.ErrorCount > 0)
+{
+    <div asp-validation-summary="All" class="alert alert-danger">
+        <p>Please review concerns and correct:</p>
+    </div>
+}
+
+<form method="post">
+    <label>
+        ID:
+        @if(Model.clubInfo == null)
+        {
+            //the intent is a new product is being added to the database
+            //there is no pkey value
+            //the product entity in sql has an identity pkey
+            <input type="text" asp-for="clubInfo.ClubID"  data-val="false" value="">
+            
+        }
+        else
+        {
+            //the intent is to update /delete an existing product record on the database
+            //therefore a pkey value will exist on the product info record
+            //One does NOT want to mess with the pkey of a record
+            //this piece of data should only be viewed and not alterable
+            <input type="text" asp-for="clubInfo.ClubID" readonly data-val="false">
+        }
+        @*to be able to display an error associated with a field firectly adjcent to the input field, we can use a span tag with the asp-validation-for helper*@
+        <span asp-validation-for="clubInfo.ClubID"></span>
+    </label>
+    <label>
+        Club Name: 
+        <input type="text" asp-for="clubInfo.ClubName" data-val="false" />
+        <span asp-validation-for="clubInfo.ClubName"></span>
+    </label>
+@*    <label>
+        Employee:
+        <select asp-for="clubInfo.EmployeeID">
+            <option value="0">select...</option>
+            @foreach(var person in Model.employeeList)
+            {
+                
+                <option value="@person.EmployeeID" selected=@(Model.clubInfo != null && person.EmployeeID == Model.clubInfo.EmployeeID)>
+                    @person.FirstName @person.LastName
+                </option>
+            }
+        </select>
+        <span asp-validation-for="clubInfo.EmployeeID"></span>
+    </label>*@
+    <label>
+        Employee:
+        <input type="text" list="staffList" name="" asp-for="clubInfo.EmployeeID">
+        <datalist id="staffList" >
+            <option value="0">select...</option>
+            @foreach(var person in Model.employeeList)
+            {
+                <option value="@person.EmployeeID" selected=@(Model.clubInfo != null && person.EmployeeID == Model.clubInfo.EmployeeID)>
+                    @person.FirstName @person.LastName
+                </option>
+            }
+        </select>
+        <span asp-validation-for="clubInfo.EmployeeID"></span>
+    </label>
+    <label>
+        Fee:
+        <input type="number" asp-for="clubInfo.Fee" placeholder="0" step="1" min="0" />
+        <span asp-validation-for="clubInfo.Fee"></span>
+    </label>
+    <label>
+        Status(Active if checked):
+        &nbsp
+        <input type="checkbox" asp-for="clubInfo.Active" value="true" />
+        <span asp-validation-for="clubInfo.Active"></span>
+    </label>
+    <br /><br />
+    @if(Model.clubid != null)
+    {
+        //an existing staff
+        <button type= "submit" asp-page-handler="New" disabled>Save New</button>
+        <button type="submit" asp-page-handler="Update">Update</button>
+        <button type="submit" asp-page-handler="Deactivate" formnovalidate onclick="return comfirm('Are you sure to deactivate this staff?')">Deactive</button>
+    }
+    else
+    {
+        //a new staff
+        <button type= "submit" asp-page-handler="Insert" >Insert</button>
+        <button type="submit" asp-page-handler="Update" disabled>Update</button>
+        <button type="submit" asp-page-handler="Deactivate" formnovalidate disabled onclick="return comfirm('Are you sure to deactivate this staff?')">Deactive</button>
+    }
+    <button type="submit" asp-page-handler="Cancel" formnovalidate>Cancel</button>
+</form>

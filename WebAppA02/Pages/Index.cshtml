@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">A02-Clubs</h1>
+    <br /><br />
+    <h2>Deliverable Descriptions</h2>
+        <p>
+            Query: Display the results of looking up Clubs by their active status (active/non-active). The employee drop-down has only employees active with clubs. Follow the mock-up below as a guide to displaying the results. Remember to include pagination.
+
+            Each club line will contain a link to allow for record maintenance. This link will cause your CRUD page to appear. Add a separate New button to have your CRUD appear.
+        </p>
+        <p>
+            CURD:Club entries are not deleted. Rather than providing a "delete" button, inlude a "Deactivate" button and in the BLL method, change the Active flag to false and update the database for that entry.
+        </p>
+    <br/><br/>
+    <h2>Known Bugs</h2>
+        <ul>
+            <li>Unknown bug</li>
+            <li>Unknown bug</li>
+            <li>Unknown bug</li>
+            <li>Unknown bug</li>
+        </ul>
+    <br /><br />
+    <h2>Entity Relationship Diagram</h2>
+        <img src="~/img/a02.png" alt="diagram">
+    <br /><br />
+    <h2>Site Styling Decision</h2>
+    <a href="https://cdn.jsdelivr.net">cdn.jsdeliver.net/npm/holiday</a>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>

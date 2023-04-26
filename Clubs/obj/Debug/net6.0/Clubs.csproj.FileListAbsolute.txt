@@ -1,0 +1,12 @@
+D:\repos\Clubs\Clubs\bin\Debug\net6.0\Clubs.deps.json
+D:\repos\Clubs\Clubs\bin\Debug\net6.0\Clubs.dll
+D:\repos\Clubs\Clubs\bin\Debug\net6.0\Clubs.pdb
+D:\repos\Clubs\Clubs\obj\Debug\net6.0\Clubs.csproj.AssemblyReference.cache
+D:\repos\Clubs\Clubs\obj\Debug\net6.0\Clubs.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\Clubs\Clubs\obj\Debug\net6.0\Clubs.AssemblyInfoInputs.cache
+D:\repos\Clubs\Clubs\obj\Debug\net6.0\Clubs.AssemblyInfo.cs
+D:\repos\Clubs\Clubs\obj\Debug\net6.0\Clubs.csproj.CoreCompileInputs.cache
+D:\repos\Clubs\Clubs\obj\Debug\net6.0\Clubs.dll
+D:\repos\Clubs\Clubs\obj\Debug\net6.0\refint\Clubs.dll
+D:\repos\Clubs\Clubs\obj\Debug\net6.0\Clubs.pdb
+D:\repos\Clubs\Clubs\obj\Debug\net6.0\ref\Clubs.dll
